@@ -22,16 +22,21 @@ const PORT = process.env.PORT;
 
 //http://localhost:3001/weather?lat=47.60621&lon=-122.33207&searchQuery=Seattle
 server.get('/weather', (req, res) => {
-    let weatherNameData = req.query.searchQuery
-    let weatherLatData = Number(req.query.lat);
-    let weatherLonData = Number(req.query.lon);
+    let weatherNameData = req.query.searchQuery;
+    console.log(req.query.searchQuery);
+    let weatherLatData = req.query.lat;
+    let weatherLonData = req.query.lon;
+
+    console.log(req.query.lat);
+    console.log(req.query.lon);
 
     let wetherResult = weatherData.find(element => {
-        if (weatherNameData == element.city_name.toLowerCase() && weatherLatData == element.lat && weatherLonData == element.lon) {
+        if (weatherNameData.toLowerCase() == element.city_name.toLowerCase()) {
+          console.log('Ammar');
             return element;
         }
     })
-
+ 
     try {
 
         let forecastArray = [];
