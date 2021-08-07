@@ -1,14 +1,16 @@
 'use strict';
-const express = require('express');
-const server = express();
 require('dotenv').config();
+
+const express = require('express');
+const weatherHandler = require('./Data-Server/movies');
+const movieHandler = require('./Data-Server/weather');
+const server = express();
 //const weatherData = require('./data/weather.json');
 const cors = require('cors');
 //const axios = require('axios');
 server.use(cors());
 //const PORT  =3001;
-const weatherHandler = require('./Data-Server/movies');
-const movieHandler = require('./Data-Server/weather')
+
 const PORT = process.env.PORT;
 
 
