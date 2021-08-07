@@ -2,6 +2,7 @@
 const axios = require('axios');
 
 module.exports = movieHandler;
+let inMemory = {};
 
 function movieHandler(req, res) {
 
@@ -10,7 +11,14 @@ function movieHandler(req, res) {
       // let movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=68b1a28c997789649fdcdb75bc8a0a0f&query=amman`;
       let movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${movieQuery}`;
       
-    
+      if (inMemory[movieQuery] !== undefined) {
+
+        console.log('get the data from the Memory');
+        
+        res.send(inMemory[movieQuery]);
+        
+    }
+    else{
       axios
           .get(movieUrl)
           .then(result => {
@@ -27,7 +35,7 @@ function movieHandler(req, res) {
               res.status(500).send(`OPS!! Your City Not Found ${err}`);
           })
     }
-
+}
     class Movie {
           constructor(item) {
               this.title = item.original_title;
