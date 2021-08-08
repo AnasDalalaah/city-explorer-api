@@ -2,8 +2,8 @@
 require('dotenv').config();
 
 const express = require('express');
-const weatherHandler = require('./Data-Server/movies');
-const movieHandler = require('./Data-Server/weather');
+const weatherHandler = require('./Data-Server/weather');
+const movieHandler = require('./Data-Server/movies');
 const server = express();
 //const weatherData = require('./data/weather.json');
 const cors = require('cors');
