@@ -42,7 +42,7 @@ function movieHandler(req, res) {
               this.overview = item.overview;
               this.average_votes = item.vote_average;
               this.total_votes = item.vote_count;
-              this.image_url =  process.env.imgurl+item.poster_path;
+              this.image_url =  process.env.img_url+item.poster_path;
               this.popularity = item.popularity;
               this.released_on = item.release_date;
               
